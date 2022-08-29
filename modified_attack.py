@@ -12,7 +12,7 @@ for k in range(1,21):
             df_1 = pd.read_table(filename ,sep=' ', header=None, names=['sample', 'mem_request'])
             x = df_1[['mem_request']]
             x = x.head(k_1)
-            df_2 = pd.read_table('./cycle_data/cycle_default_1',sep=' ', header=None, names=['sample', 'cycle'])
+            df_2 = pd.read_table('./cycle_data/cycle_default',sep=' ', header=None, names=['sample', 'cycle'])
             y = df_2[['cycle']]
             y = y.head(k_1)
             df = pd.concat([x,y],axis =1)

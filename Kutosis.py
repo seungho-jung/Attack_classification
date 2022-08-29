@@ -11,6 +11,7 @@ for sample_num in range(1,21):
         corr=df[['correlation']]
         corr = corr.head(256)
         kurt = corr.kurt()
+        #axis=1 적용?
 #        print(kurt)
         data = "%f\n" % kurt
         f.write(data)
