@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import pandas as pd
-for sample_num in range(1,21):
+for sample_num in range(1,21): #21
     sample_num_add = sample_num*50000
     kurtosis_name="./kurtosis_result"+"/"+"kurtosis_"+str(sample_num_add)+".txt"
     f = open(kurtosis_name, 'w')
@@ -10,9 +10,13 @@ for sample_num in range(1,21):
         df=pd.read_table(foldername,sep=' ', header=None, names=['correlation'])
         corr=df[['correlation']]
         corr = corr.head(256)
-        kurt = corr.kurt()
-#        print(kurt)
-        data = "%f\n" % kurt
+#        max_corr = corr.max()
+#        print(max_corr.iloc[0])
+#        corr_byte = corr.index[corr['correlation'] == max_corr.iloc[0]]
+#        print(corr_byte[0])
+        cal_kurt = corr.kurt()
+#        print(cal_kurt)
+        data = "%f\n" % cal_kurt
         f.write(data)
     f.close
 
