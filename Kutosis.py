@@ -10,6 +10,7 @@ for sample_num in range(1,21): #21
         df=pd.read_table(foldername,sep=' ', header=None, names=['correlation'])
         corr=df[['correlation']]
         corr = corr.head(256)
+<<<<<<< HEAD
 #        max_corr = corr.max()
 #        print(max_corr.iloc[0])
 #        corr_byte = corr.index[corr['correlation'] == max_corr.iloc[0]]
@@ -17,6 +18,12 @@ for sample_num in range(1,21): #21
         cal_kurt = corr.kurt()
 #        print(cal_kurt)
         data = "%f\n" % cal_kurt
+=======
+        kurt = corr.kurt()
+        #axis=1 적용?
+#        print(kurt)
+        data = "%f\n" % kurt
+>>>>>>> 74ae71712da5db168001fa3f7dbb674299564af2
         f.write(data)
     f.close
 
