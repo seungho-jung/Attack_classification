@@ -2,3 +2,6 @@ attack_result
 cycle_data
 kurtosis_result
 memory_request
+L3_correlation_result
+L3_cycle
+L3_kurtosis_result
