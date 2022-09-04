@@ -5,3 +5,6 @@ memory_request
 L3_correlation_result
 L3_cycle
 L3_kurtosis_result
+L1_correlation_result
+L1_cycle
+L1_kurtosis_result
