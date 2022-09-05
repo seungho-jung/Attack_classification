@@ -32,7 +32,7 @@ def cal_correlation(byte_num):
         f.close()
 
 def correlation():
-    num_cores = 8
+    num_cores = 4
     pool = Pool(num_cores)
     pool.map(cal_correlation,range(0,16))
     pool.close()
