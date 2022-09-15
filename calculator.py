@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-from tkinter import W
 import pandas as pd
 
 def calculator(average_num):
-    for byte_num in range(0,1):
+    for byte_num in range(0,16):
         memory_hierarchy = 'L3'
         calculator_name ="./calculator_result"+"_average"+str(average_num)+"_byte"+str(byte_num)+".txt"
         f=open(calculator_name,'w')
@@ -19,13 +18,31 @@ def calculator(average_num):
             average_num_range = average_num +2
             for i in range(2,average_num_range):
                 corr_temporal=corr.loc[corr.rank_by_first==i,['correlation']]
+                if corr_temporal.iloc[0]['correlation'] < 0 :
+                    corr_temporal.iloc[0]['correlation'] = 0
                 average_sum+=corr_temporal.iloc[0]['correlation']
             average=average_sum/average_num
             cal=max_corr.iloc[0]/average
             data = "%f\n" % cal
             f.write(data)
         f.close
-for j in range(10,250,10):
+
+for j in range(10,260,10):
     calculator(j)
 
 calculator(255)
+
+for byte_num in range(0,16):
+    lrd_1="./calculator_result"+"_average"+str(10)+"_byte"+str(byte_num)+".txt"
+    lrd_2="./calculator_result"+"_average"+str(20)+"_byte"+str(byte_num)+".txt"
+    df_1 = pd.read_table(lrd_1,sep=' ', header=None, names=['lrd'+str(10)])
+    df_2 = pd.read_table(lrd_2,sep=' ', header=None, names=['lrd'+str(20)])
+    result = pd.concat([df_1,df_2],axis=1)
+    for average_count in range(30,260,10):
+        lrdname="./calculator_result"+"_average"+str(average_count)+"_byte"+str(byte_num)+".txt"
+        df = pd.read_table(lrdname ,sep=' ', header=None, names=['lrd'+str(average_count)])
+        result = pd.concat([result,df],axis=1)
+    lrd_last="./calculator_result"+"_average"+str(255)+"_byte"+str(byte_num)+".txt"
+    df_last=pd.read_table(lrd_last,sep=' ', header=None, names=['lrd'+str(255)])
+    result = pd.concat([result,df_last],axis=1)
+    result.to_csv("./average_temporal"+str(byte_num)+".csv")
