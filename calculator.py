@@ -27,6 +27,8 @@ def calculator(mem_hierarchy,average_num):
                         corr_temporal.iloc[0]['correlation'] = 0
                     average_sum+=corr_temporal.iloc[0]['correlation']
                 average=average_sum/average_num
+                print('average:',average)
+                print('max:',max_corr.iloc[0])
                 cal=max_corr.iloc[0]/average
                 data = "%f\n" % cal
                 f.write(data)
@@ -66,5 +68,5 @@ for mem in  ['L1','L2','L3']:
 #calculator(26)
 gen_list=['L1','L2','L3']#,'CTA_1','CTA_2','CTA_4','CTA_8','CTA_15','CTA_30']
 for i in gen_list:
-    gen_execel(i)
+    gen_execel(i,10)
 #calculator(255)

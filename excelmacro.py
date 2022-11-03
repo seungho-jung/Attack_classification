@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import pandas as pd
-for sample_num in range(1,21):
-    memory_hierarchy = 'width_32byte'
+for sample_num in range(1,10):
+    memory_hierarchy = 'DRAM'
 #    sample_num_add = sample_num*50000
 #    corrname_0="./attack_result"+"/"+str(sample_num_add)+"corr_"+str(0)+".txt"
 #    corrname_1="./attack_result"+"/"+str(sample_num_add)+"corr_"+str(1)+".txt"
