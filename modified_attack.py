@@ -4,9 +4,9 @@ import pandas as pd
 from multiprocessing import Pool
 
 def cal_correlation(byte_num):
-    for k in range(1,11):
-        memory_hierarchy = 'width_32byte'
-        k_1 = k*1000 #for L1
+    for k in range(1,21):
+        memory_hierarchy = 'L3'
+        k_1 = k*50000 #for L1
         #k_1 = k*1000 #for L3
         foldername="./memory_request/byte"+str(byte_num)
         corrname="./"+memory_hierarchy+"_correlation_result"+"/"+str(k_1)+"corr_"+str(byte_num)+".txt"
